@@ -21,6 +21,17 @@
 [metaes/metaes](https://github.com/metaes/metaes) | ![GitHub Repo stars](https://img.shields.io/github/stars/metaes/metaes) | ![GitHub last commit](https://img.shields.io/github/last-commit/metaes/metaes) |
 [jkeylu/evil-eval](https://github.com/jkeylu/evil-eval) | ![GitHub Repo stars](https://img.shields.io/github/stars/jkeylu/evil-eval) | ![GitHub last commit](https://img.shields.io/github/last-commit/jkeylu/evil-eval) |
 
+## selection criteria
+
+- error handling: message, location, stack
+- simple interface or complex interface
+- how empty is the default sandbox? for example, does `console.log` work?
+- simple interface between sandbox and environment: import, export, call, return, throw
+- stepped execution is supported? needed for debugging
+- ecmascript version: what spec is implemented?
+- spec compliance: how complete is the implementation?
+- performance
+
 ## ECMAScript version
 
 ```js
