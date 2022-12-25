@@ -59,6 +59,56 @@ console.log("ES2019", Object.fromEntries([["a",1]]))
 console.log("ES2020", null ?? "asdf")
 ```
 
+## use cases
+
+when do we need a javascript interpreter?
+
+### eval code
+
+workaround for
+
+```js
+const x = 1
+const y = 2
+const v = eval("x + y")
+console.log(v == 3)
+```
+
+which can break with CSP
+
+> EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+
+
+### compile functions
+
+workaround for
+
+```js
+const f = new Function("x", "y", "return x + y")
+console.log(f(1, 2) == 3)
+console.log(f(3, 4) == 7)
+```
+
+which can break with CSP
+
+> EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
+
+### compile modules
+
+workaround for
+
+```js
+(async () => {
+const m = await import("data:text/javascript,export function f(x, y) { return x + y; }")
+console.log(m.f(1, 2) == 3)
+console.log(m.f(3, 4) == 7)
+})()
+```
+
+which can break with CSP
+
+> Refused to load the script ... because it violates the following Content Security Policy directive: "script-src 'self'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+
 ## not needed
 
 a javascript interpreter is not needed is some cases
