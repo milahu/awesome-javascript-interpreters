@@ -59,6 +59,85 @@ console.log("ES2019", Object.fromEntries([["a",1]]))
 console.log("ES2020", null ?? "asdf")
 ```
 
+## not needed
+
+a javascript interpreter is not needed is some cases
+
+### web extensions
+
+https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#loading_content_scripts
+
+<blockquote>
+
+Loading content scripts
+
+You can load a content script into a web page in one of three ways:
+
+1\. At install time, into pages that match URL patterns.
+
+Using the [content_scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) key in your manifest.json, you can ask the browser to load a content script whenever the browser loads a page whose URL matches a given pattern.
+
+2\. At runtime, into pages that match URL patterns.
+
+Using the [contentScripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts) API, you can ask the browser to load a content script whenever the browser loads a page whose URL matches a given pattern. (This is similar to method 1, except that you can add and remove content scripts at runtime.)
+
+3\. At runtime, into specific tabs.
+
+In Manifest V2, using tabs.executeScript(), or Manifest V3, using [scripting.executeScript()](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting/executeScript), you can load a content script into a specific tab whenever you want. (For example, in response to the user clicking on a browser action.)
+
+There is only one global scope per frame, per extension. This means that variables from one content script can directly be accessed by another content script, regardless of how the content script was loaded.
+
+Using methods (1) and (2), you can only load scripts into pages whose URLs can be represented using a match pattern.
+
+Using method (3), you can also load scripts into pages packaged with your extension, but you can't load scripts into privileged browser pages (like "about:debugging" or "about:addons").
+
+</blockquote>
+
+https://github.com/violentmonkey/violentmonkey/blob/master/src/background/utils/preinject.js
+
+```js
+const contentScriptsAPI = browser.contentScripts;
+
+// ...
+
+function registerScriptDataFF(inject, url) {
+  for (const scr of inject[ENV_SCRIPTS]) {
+    scr.code = scr[__CODE];
+  }
+  return contentScriptsAPI.register({
+    js: [{
+      code: `${resolveDataCodeStr}(${JSON.stringify(inject)})`,
+    }],
+    matches: url.split('#', 1),
+    runAt: 'document_start',
+  });
+}
+```
+
+https://skratchdot.com/2013/05/userscripts-and-content-security-policy/
+
+```js
+var injectViaScript = function (fn) {
+  var script = document.createElement('script');
+  script.textContent = '(' + fn.toString() + '());';
+  document.body.appendChild(script);
+  //document.body.removeChild(script);
+};
+```
+
+```js
+var injectViaIframe = function (fn) {
+  var fnName = 'dynamic_fn_' + new Date().getTime(),
+    iframe = document.createElement('iframe');
+  iframe.onload = function () {
+    parent.window[fnName] = new Function('(' + fn.toString() + '());');
+    parent.window[fnName]();
+    parent.document.body.removeChild(iframe);
+  };
+  document.body.appendChild(iframe);
+};
+```
+
 ## see also
 
 - https://npmtrends.com/evil-eval-vs-js-interpreter-vs-vm-browserify-vs-vm2
