@@ -6,7 +6,6 @@
 -- | -- | -- | --
 [bellard/quickjs](https://github.com/bellard/quickjs) | ![GitHub Repo stars](https://img.shields.io/github/stars/bellard/quickjs) | ![GitHub last commit](https://img.shields.io/github/last-commit/bellard/quickjs) | WASM, [benchmarks](https://bellard.org/quickjs/bench.html)
 [patriksimek/vm2](https://github.com/patriksimek/vm2) | ![GitHub Repo stars](https://img.shields.io/github/stars/patriksimek/vm2) | ![GitHub last commit](https://img.shields.io/github/last-commit/patriksimek/vm2) | nodejs
-[jterrace/js.js](https://github.com/jterrace/js.js) | ![GitHub Repo stars](https://img.shields.io/github/stars/jterrace/js.js) | ![GitHub last commit](https://img.shields.io/github/last-commit/jterrace/js.js) | based on SpiderMonkey, 2012
 [NeilFraser/JS-Interpreter](https://github.com/NeilFraser/JS-Interpreter) | ![GitHub Repo stars](https://img.shields.io/github/stars/NeilFraser/JS-Interpreter) | ![GitHub last commit](https://img.shields.io/github/last-commit/NeilFraser/JS-Interpreter) | based on vm-browserify
 [sablejs/sablejs](https://github.com/sablejs/sablejs) | ![GitHub Repo stars](https://img.shields.io/github/stars/sablejs/sablejs) | ![GitHub last commit](https://img.shields.io/github/last-commit/sablejs/sablejs) | [benchmarks](https://github.com/sablejs/sablejs#benchmark), ES5.1 = ES2009
 [engine262/engine262](https://github.com/engine262/engine262) | ![GitHub Repo stars](https://img.shields.io/github/stars/engine262/engine262) | ![GitHub last commit](https://img.shields.io/github/last-commit/engine262/engine262) | ES2020, complex interface, stepped execution, empty sandbox
@@ -21,6 +20,7 @@ last commit is over 1 year ago
 repo | stars | last commit | comments
 -- | -- | -- | --
 [bramblex/jsjs](https://github.com/bramblex/jsjs) | ![GitHub Repo stars](https://img.shields.io/github/stars/bramblex/jsjs) | ![GitHub last commit](https://img.shields.io/github/last-commit/bramblex/jsjs) |
+[jterrace/js.js](https://github.com/jterrace/js.js) | ![GitHub Repo stars](https://img.shields.io/github/stars/jterrace/js.js) | ![GitHub last commit](https://img.shields.io/github/last-commit/jterrace/js.js) | based on SpiderMonkey, last version 2012
 [mozilla/narcissus](https://github.com/mozilla/narcissus) | ![GitHub Repo stars](https://img.shields.io/github/stars/mozilla/narcissus) | ![GitHub last commit](https://img.shields.io/github/last-commit/mozilla/narcissus) | archived
 [zuluoaaa/makeJs](https://github.com/zuluoaaa/makeJs) | ![GitHub Repo stars](https://img.shields.io/github/stars/zuluoaaa/makeJs) | ![GitHub last commit](https://img.shields.io/github/last-commit/zuluoaaa/makeJs) |
 [jrainlau/canjs](https://github.com/jrainlau/canjs) | ![GitHub Repo stars](https://img.shields.io/github/stars/jrainlau/canjs) | ![GitHub last commit](https://img.shields.io/github/last-commit/jrainlau/canjs) |
