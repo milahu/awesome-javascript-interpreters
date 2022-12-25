@@ -44,14 +44,16 @@ repo | stars | last commit | comments
 
 ## ECMAScript version
 
+some test code
+
 ```js
-console.log(Array.isArray([1, 2])) // ES2009
-console.log([1, 2].find(x => x == 1)) // ES2015
-console.log([1, 2].includes(1)) // ES2016
-console.log(Object.entries({a: 1})) // ES2017
-console.log([ ...[1, 2] ]) // ES2018
-console.log(Object.fromEntries([["a",1]])) // ES2019
-console.log(null ?? "asdf") // ES2020
+console.log("ES2009", Array.isArray([1, 2]))
+console.log("ES2015", [1, 2].find(x => x == 1))
+console.log("ES2016", [1, 2].includes(1))
+console.log("ES2017", Object.entries({a: 1}))
+console.log("ES2018", [ ...[1, 2] ])
+console.log("ES2019", Object.fromEntries([["a",1]]))
+console.log("ES2020", null ?? "asdf")
 ```
 
 ## see also
