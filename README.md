@@ -27,6 +27,7 @@
 - simple interface or complex interface
 - how empty is the default sandbox? for example, does `console.log` work?
 - simple interface between sandbox and environment: import, export, call, return, throw
+- async code: does the interpreter block the main thread?
 - stepped execution is supported? needed for debugging
 - ecmascript version: what spec is implemented?
 - spec compliance: how complete is the implementation?
