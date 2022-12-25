@@ -39,7 +39,10 @@ repo | stars | last commit | comments
 - stepped execution is supported? needed for debugging
 - ecmascript version: what spec is implemented?
 - spec compliance: how complete is the implementation?
-- performance
+- compatibility: can it run unmodified code?
+- `createFunction` - does it have a replacement for `const f = new Function("x", "y", "return x + y")`?
+- `createModule` - does it have a replacement for `const m = await import("data:text/javascript,export function f(x, y) { return x + y; }")`?
+- performance: how much slower than native speed? is performance relevant for this use case?
 - WASM or javascript? WASM is faster, but more complex
 
 ## ECMAScript version
