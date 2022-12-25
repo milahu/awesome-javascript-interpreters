@@ -40,6 +40,7 @@ repo | stars | last commit | comments
 - ecmascript version: what spec is implemented?
 - spec compliance: how complete is the implementation?
 - performance
+- WASM or javascript? WASM is faster, but more complex
 
 ## ECMAScript version
 
