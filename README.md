@@ -30,6 +30,7 @@ repo | stars | last commit | comments
 
 ## selection criteria
 
+- browser or nodejs: does it run in a browser (web APIs)?
 - error handling: message, location, stack
 - simple interface or complex interface
 - how empty is the default sandbox? for example, does `console.log` work?
