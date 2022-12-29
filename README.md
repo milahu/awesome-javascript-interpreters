@@ -63,6 +63,26 @@ console.log("ES2020", null ?? "asdf")
 
 when do we need a javascript interpreter?
 
+### inject script
+
+workaround for
+
+```js
+globalThis.callback = (value) => console.log(value == 3)
+const source = `
+  const x = 1
+  const y = 2
+  globalThis.callback(x + y)
+`
+const script = document.createElement("script")
+script.textContent = source
+document.body.append(script)
+```
+
+which can break with CSP
+
+> Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self'".
+
 ### eval code
 
 workaround for
@@ -164,34 +184,10 @@ function registerScriptDataFF(inject, url) {
 }
 ```
 
-https://skratchdot.com/2013/05/userscripts-and-content-security-policy/
-
-```js
-var injectViaScript = function (fn) {
-  var script = document.createElement('script');
-  script.textContent = '(' + fn.toString() + '());';
-  document.body.appendChild(script);
-  //document.body.removeChild(script);
-};
-```
-
-```js
-var injectViaIframe = function (fn) {
-  var fnName = 'dynamic_fn_' + new Date().getTime(),
-    iframe = document.createElement('iframe');
-  iframe.onload = function () {
-    parent.window[fnName] = new Function('(' + fn.toString() + '());');
-    parent.window[fnName]();
-    parent.document.body.removeChild(iframe);
-  };
-  document.body.appendChild(iframe);
-};
-```
-
 ## see also
 
 - https://npmtrends.com/evil-eval-vs-js-interpreter-vs-vm-browserify-vs-vm2
 - https://github.com/search?l=JavaScript&q=javascript+interpreter
 - https://github.com/search?l=TypeScript&q=javascript+interpreter
 - https://www.w3schools.com/Js/js_versions.asp - ECMAScript Editions
-
+- https://skratchdot.com/2013/05/userscripts-and-content-security-policy/
